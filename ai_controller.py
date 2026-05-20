@@ -68,7 +68,3 @@ class ModelController:
             print(f'Runtime control loop error: {e}')
             self.bridge.communicate([0.0]*12, [0.0]*12, estop=True)
             self.bridge.close()
-
-if __name__ == '__main__':
-    controller = ModelController(MODEL_PATH)
-    controller.run_loop(frequency=50)

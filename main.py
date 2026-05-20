@@ -1,22 +1,10 @@
-from jetson_to_teensy import JetsonTeensyBridge
+import ai_controller
+
+MODEL_PATH = ''
 
 def main():
-    bridge = JetsonTeensyBridge()
-    try:
-        while True:
-            positions = [0.0] * 12
-            torques = [0.0] * 12
-            estop = False
+    controller = ai_controller.ModelController(MODEL_PATH)
+    controller.run_loop(frequency=50)
 
-            imu_motor_feedback = bridge.communicate(positions, torques, estop)
-            if imu_motor_feedback:
-                print(f"Feedback: {imu_motor_feedback}")
-            else:
-                print("No feedback received.")
-    except Exception as e:
-        print(f"ERROR: {e}")
-    finally:
-        bridge.close()
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
