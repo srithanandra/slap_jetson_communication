@@ -1,4 +1,4 @@
-*Code for Jetson Communication with Packets*
+**Code for Jetson Communication with Packets**
 
 Pipeline:
 - Trained AI Model to Jetson to Teensy (Motor Position and Torque commands)
